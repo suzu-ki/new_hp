@@ -2,17 +2,42 @@
 title: Home
 ---
 
-<h1>News</h1>
-<ul>
-  {% assign items = site.news | sort: "date" | reverse %}
-  {% for post in items %}
-    <li>
-      <span>{{ post.date | date: "%Y-%m-%d" }}</span>
-      <a href="{{ site.baseurl }}{{ post.url }}">
-        {{ post.title }}
-      </a>
-    </li>
-  {% endfor %}
-</ul>
+<!doctype html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8" />
+    <title>みに</title>
+</head>
+<body>
+    <div id="header"></div>
+    <div class="content">
+        <h1>News</h1>
+        <ul>
+        {% assign items = site.news | sort: "date" | reverse %}
+        {% for post in items %}
+            <li>
+            <span>{{ post.date | date: "%Y-%m-%d" }}</span>
+            <a href="{{ site.baseurl }}{{ post.url }}">
+                {{ post.title }}
+            </a>
+            </li>
+        {% endfor %}
+        </ul>
+    </div>
 
+    <div id="fotter"></div>
 
+<script>
+fetch("./components/header.html")
+  .then(res => res.text())
+  .then(html => {
+    document.getElementById("header").innerHTML = html;
+  });
+
+fetch("./components/fotter.html")
+  .then(res => res.text())
+  .then(html => {
+    document.getElementById("fotter").innerHTML = html;
+  });
+</script>
+</body>
