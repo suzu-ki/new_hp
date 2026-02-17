@@ -1,5 +1,9 @@
 title: Lab HP
 baseurl: "/new_hp"
 encoding: utf-8
-permalink: /news/:year/:month/:day/:slug.html
+
+collections:
+  news:
+    output: true
+    permalink: /news/:year/:month/:day/:slug.html
 

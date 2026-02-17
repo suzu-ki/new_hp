@@ -4,14 +4,15 @@ title: Home
 
 <h1>News</h1>
 <ul>
-  {% for post in site.posts %}
+  {% assign items = site.news | sort: "date" | reverse %}
+  {% for post in items %}
     <li>
       <span>{{ post.date | date: "%Y-%m-%d" }}</span>
       <a href="{{ site.baseurl }}{{ post.url }}">
-      <!-- <a href="{{ post.url }}"> -->
         {{ post.title }}
       </a>
     </li>
   {% endfor %}
 </ul>
+
 
