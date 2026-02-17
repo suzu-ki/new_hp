@@ -1,0 +1,16 @@
+---
+layout: default
+title: Home
+---
+
+<h1>News</h1>
+<ul>
+  {% for item in site.data.news %}
+    <li>
+      <span>{{ item.date }}</span>
+      <a href="/news.html?id={{ item.id }}">
+        {{ item.title }}
+      </a>
+    </li>
+  {% endfor %}
+</ul>
